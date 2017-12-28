@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+<!-- this should adjust size -->
+{% block headercontent %}
+  <div class="container text-center">
+    <h1><a href="{% url 'homepage' %}" class="display-3 mt-3">Project Craig</a></h1>
+    <p class="lead">The window into my mind</p>
+  </div>
+{% endblock %}
+
+<!-- notice how this block is named the same as the homepage - it goes in the
+same place -->
+
+{% block content %}
+  <h3>{{ specific_post}}</h3>
+
+  <div>
+    <ul>
+      <li>
+        {{ specific_post.id}}
+      </li>
+      <li>
+        {{specific_post.post_description}}
+      </li>
+      <li>
+        {{ specific_post.upload_date}}
+      </li>
+      <li>
+        {{ specific_post.post_content }}
+      </li>
+      <li>
+        {{ post_read }}
+      </li>
+    </ul>
+
+  </div>
+
+  <div>
+    <a href="{% url 'general_blog_home' %}">Back to Blog List</a>
+  </div>
+
+{% endblock %}

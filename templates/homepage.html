@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block headercontent %}
+  <div class="container text-center">
+    <h1 class="display-3 mt-3">Project Craig</h1>
+    <p class="lead">The window into my mind</p>
+  </div>
+{% endblock %}
+
+{% block content %}
+
+  {% for model in all_models %}
+  <ul>
+    <li class="ul">{{ model }}</li>
+  </ul>
+  {% endfor %}
+
+  <ul>
+    <li>
+      <a href="{% url 'general_blog_home' %}">Blog</a>
+    </li>
+  </ul>
+
+
+{% endblock %}
