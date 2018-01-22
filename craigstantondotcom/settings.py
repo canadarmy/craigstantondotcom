@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'blockchain',
     'generalblog',
     'static',
+    'rest_framework',
+    'markdown'
 ]
 
 MIDDLEWARE = [

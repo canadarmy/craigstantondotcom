@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load templatetags %}
+
 
 <!-- this should adjust size -->
 {% block headercontent %}
@@ -12,27 +14,11 @@
 same place -->
 
 {% block content %}
-  <h3>{{ specific_post}}</h3>
-
   <div>
-    <ul>
-      <li>
-        {{ specific_post.id}}
-      </li>
-      <li>
-        {{specific_post.post_description}}
-      </li>
-      <li>
         {{ specific_post.upload_date}}
-      </li>
-      <li>
-        {{ specific_post.post_content }}
-      </li>
-      <li>
-        {{ post_read }}
-      </li>
-    </ul>
-
+  </div>
+  <div rel="stylesheet" type="text/css" href="https://rawgit.com/richleland/pygments-css/master/colorful.css">
+    {{ pretty_soup | markdown | safe }}
   </div>
 
   <div>
@@ -40,3 +26,8 @@ same place -->
   </div>
 
 {% endblock %}
+
+
+"""
+https://www.ignoredbydinosaurs.com/posts/275-easy-markdown-and-syntax-highlighting-django
+"""

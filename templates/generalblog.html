@@ -19,11 +19,11 @@ same place -->
   <ul>
   {% for blog_cat in blog_posts %}
     <li>
-    {{ blog_cat.post_category }}
+    {{ blog_cat.post_category }}:
       <ul>
         {% for post in blog_posts %}
           <li>
-            <a href="{% url 'specific_post' id=post.id %}">{{ post }}</a>
+            <a href="{% url 'specific_post' id=post.id %}">{{ post }}</a>:  {{ post.post_description }}
           </li>
         {% endfor %}
       </ul>
