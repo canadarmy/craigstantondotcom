@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load templatetags %}
+
+
+<!-- this should adjust size -->
+{% block headercontent %}
+    <h1><a href="{% url 'homepage' %}">Project Craig</a></h1>
+{% endblock %}
+
+<!-- notice how this block is named the same as the homepage - it goes in the
+same place -->
+
+{% block content %}
+  <div>
+        {{ specific_post.upload_date}}
+  </div>
+  <div rel="stylesheet" type="text/css" href="https://rawgit.com/richleland/pygments-css/master/colorful.css">
+    {{ pretty_soup | markdown | safe }}
+  </div>
+
+  <div>
+    <a href="{% url 'general_blog_home' %}">Back to Blog List</a>
+  </div>
+
+{% endblock %}
+
+
+"""
+Great solution for displaying markdown and code...but I cannot get the code section to work
+https://www.ignoredbydinosaurs.com/posts/275-easy-markdown-and-syntax-highlighting-django
+"""

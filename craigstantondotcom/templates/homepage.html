@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block headercontent %}
+    <h1>Project Craig</h1>
+{% endblock %}
+
+{% block navigate %}
+  <ul>
+    <li>
+      <a href="{% url 'blockchain_home' %}">Blockchain</a>
+    </li>
+    <li>
+      <a href="{% url 'general_blog_home' %}">Blog</a>
+    </li>
+  </ul>
+{% endblock %}
+
+{% block content %}
+  <h3>About me</h3>
+  <ul>
+    <li>Name: Craig Stanton</li>
+    <li>Residence: London, UK</li>
+    <li>Interests: Python, Data Science, Blockchain & Cryptocurrency</li>
+    <li>Attempted Thought Logic: Using First Principles to build mental models.
+      Breaking down arguements by asking 'why' until I reach my underlying biases </li>
+
+  </ul>
+  <h4>About this site</h4>
+  <p>
+    I am still trying to figure what this site is about and why people will care
+    - I doubt people will. I think this is just therapeutic.
+  </p>
+  <p>
+    It will never be finished.
+  </p>
+{% endblock %}

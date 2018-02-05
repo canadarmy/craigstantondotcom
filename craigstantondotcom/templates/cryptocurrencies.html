@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block headercontent %}
+    <h1><a href="{% url 'homepage' %}">Project Craig</a></h1>
+{% endblock %}
+
+{% block content %}
+  <h5>Welcome to Craig's blockchain project.</h5>
+  <h6>Here you will see the endeavors I am undertaking with respect to all things Blockchain</h6>
+
+  <tr class="ul">
+    <li>
+      {{ data }}
+    </li>
+    <li>
+      {{ fetch_json }}
+    </li>
+    <li>
+      {{ fetch_status }}
+    </li>
+  </tr>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block headercontent %}
+    <h1><a href="{% url 'homepage' %}">Project Craig</a></h1>
+{% endblock %}
+
+{% block content %}
+  <h5>Welcome to Craig's blockchain project.</h5>
+  <h6>Here you will see the endeavors I am undertaking with respect to all things Blockchain</h6>
+
+  {% for opt1, opt2 in options %}
+  <tr class="ul">
+    <li>
+      {% if opt2 == 'Research' %}
+        <a href="{% url 'cryptos_home' %}">Research</a>
+      {% endif %}
+        {{ opt2 }}
+    </li>
+  </tr>
+  {% endfor %}
+
+{% endblock %}
