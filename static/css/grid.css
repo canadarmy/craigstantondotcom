@@ -1,34 +1,64 @@
-.grid {
-  display: grid;
-  grid-template-columns: 150px auto 150px;
-  grid-gap: 1em;
-}
 
-header, footer {
-  grid-column: 1 / 4;
-}
-
-@media all and (max-width: 700px) {
-  aside,
-  article {
-    grid-column: 1 / 4;
-  }
-}
-
-/* Demo Specific Styles */
 body {
-  margin: 0 auto;
-  max-width: 56em;
-  padding: 1em 0;
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "nav article article"
+    "nav footer footer";
+  grid-template-rows: 375px 1fr 70px;
+  grid-template-columns: 15% 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+  height: 100vh;
+  margin: 0;
+  }
+header, footer, article, nav, div {
+  padding: 1.2em;
+  }
+
+#pageHeader {
+  grid-area: header;
+  background-image: url("../img/NZ.jpg");
+
+  background-size: cover;
+  background-position: center;
+  background-blend-mode: difference;
+  }
+
+#transbox {
+  grid-column-start: 2 / span 1;
+  align-self: center;
+  width: max-content;
+  background-color: #ffffff;
+  opacity: 0.6;
+  filter: alpha(opacity=60); /* For IE8 and earlier */
+  font-family: 'Playfair Display', serif;
+  text-align: center;
 }
 
-header,
-aside,
-article,
-footer {
-  background: #eaeaea;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 25vh;
+#pageFooter {
+  grid-area: footer;
+  }
+#mainArticle {
+  grid-area: article;
+  }
+#mainNav {
+  grid-area: nav;
+  }
+#siteAds {
+  grid-area: ads;
+  }
+/* Stack the layout on small devices/viewports. */
+@media all and (max-width: 575px) {
+  body {
+    grid-template-areas:
+      "header"
+      "subheader"
+      "article"
+      "ads"
+      "nav"
+      "footer";
+    grid-template-rows: 80px 1fr 70px 1fr 70px;
+    grid-template-columns: 1fr;
+ }
 }

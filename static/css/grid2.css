@@ -1,0 +1,70 @@
+
+/*
+1. set up the hierarchy so that by default, the body sets certain parameters
+  ie. font, background colour, margins etc.
+2. then build out the different sections
+  ie. header, navigation, footer - if applicable
+  when you assign a font to these child relationships, they override the parent
+  value
+*/
+* {
+  box-sizing: border-box;
+}
+
+html {}
+
+body {
+}
+
+header {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, auto);
+  grid-gap: 20px;
+  font-family: georgia, 'times new roman', times, serif;
+	font-size: 100%;
+	background-color: #fff;
+	color: #43453A;
+	margin: 0;
+  text-align: auto;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  grid-column: 1 / span 13;
+  grid-row: 1 / span 3;
+}
+
+
+h1 { /* autoprefixer: off */
+  font-family:'Sanchez Slab W03', Courier, serif;
+  font-weight: normal;
+  font-size: 2.4rem;
+  line-height: 1.4;
+  margin: 0;
+  grid-row: 2;
+  grid-column: 6 / span 2;
+  span {
+    display: inline;
+    padding: 0.5rem 0.25rem 0;
+    box-decoration-break: clone;
+    background: #FFED00;
+  }
+}
+
+article {
+  grid-column-start: 3;
+  grid-column-end: 10;
+  grid-row-start: 3;
+}
+
+nav {
+  grid-column-start: 1;
+  grid-row-start: 3;
+}
+
+footer {
+  grid-row-start: 5;
+  grid-column-start: 1;
+}
