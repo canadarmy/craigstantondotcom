@@ -14,19 +14,44 @@
 html {}
 
 body {
-}
-
-header {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, auto);
+  grid-template-areas:
+    "header header header header header header header header header header header header"
+    "header header header header header header header header header header header header"
+    "header header header header header header header header header header header header"
+    "header header header header header header header header header header header header"
+    "nav nav article article article article article article article article article article"
+    "nav nav article article article article article article article article article article"
+    "nav nav article article article article article article article article article article"
+    "nav nav article article article article article article article article article article"
+    "footer footer footer footer footer footer footer footer footer footer footer footer"
+    "footer footer footer footer footer footer footer footer footer footer footer footer"
+    "footer footer footer footer footer footer footer footer footer footer footer footer"
+    "footer footer footer footer footer footer footer footer footer footer footer footer";
+  grid-gap: 20px;
+}
+
+header {
+
+  /* important: below 2 rows represent where in the BODY grid the header and
+  child are placed */
+  grid-column: 1 / span 13;
+  grid-row: 1 / span 4;
+
+  /* tamplate rows below are for the header and children only */
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   grid-gap: 20px;
   font-family: georgia, 'times new roman', times, serif;
 	font-size: 100%;
 	background-color: #fff;
 	color: #43453A;
 	margin: 0;
-  text-align: auto;
+  text-align: center;
+
 }
 
 img {
@@ -38,13 +63,14 @@ img {
 
 
 h1 { /* autoprefixer: off */
-  font-family:'Sanchez Slab W03', Courier, serif;
+  font-family: 'Satisfy', cursive;
   font-weight: normal;
   font-size: 2.4rem;
   line-height: 1.4;
   margin: 0;
-  grid-row: 2;
-  grid-column: 6 / span 2;
+  grid-row: 1;
+  grid-column: 4 / span 6;
+  align-self: center;
   span {
     display: inline;
     padding: 0.5rem 0.25rem 0;
@@ -54,17 +80,39 @@ h1 { /* autoprefixer: off */
 }
 
 article {
-  grid-column-start: 3;
-  grid-column-end: 10;
-  grid-row-start: 3;
+  grid-column: 3 / span auto;
+  grid-row-start: 5;
+  font-family: georgia, 'times new roman', times, serif;
+	font-size: 100%;
 }
 
 nav {
   grid-column-start: 1;
-  grid-row-start: 3;
+  grid-row-start: 5;
 }
 
 footer {
-  grid-row-start: 5;
+  grid-row-start: 8;
   grid-column-start: 1;
+}
+
+@media (max-width: 700px) {
+  body {
+    display: grid;
+    grid-row: repeat(1fr, 4);
+    grid-column: 1fr;
+  }
+  header {
+    grid-row: 1;
+  }
+  nav {
+    grid-row: 2;
+  }
+  article {
+    grid-row: 3;
+    grid-column: 1 / span auto;
+  }
+  footer {
+    grid-row: 4;
+  }
 }
