@@ -20,12 +20,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'd5ka97d5jptf2gpf^%v@s3-jqc#aym!o04c$5m52#2fe0x1if6'
+with open(r'C:\Users\Craig\csdotcom_key.txt') as f:
+    SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'craigstanton.com']
 
 
 # Application definition
@@ -81,10 +82,17 @@ WSGI_APPLICATION = 'craigstantondotcom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+with open(r'C:\Users\Craig\csdotcom_dbpw.txt') as f:
+    SECRET_DBPW = f.read().strip()
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'craigstantondotcom',
+        'USER': 'Craig',
+        'PASSWORD': SECRET_DBPW,
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 

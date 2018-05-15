@@ -22,12 +22,12 @@ class GeneralBlog(models.Model):
         ('RANDOM_THOUGHTS', 'Random Thoughts')
     )
 
-    post_category=models.CharField(max_length=15, choices=POST_CAT, default='RANDOM_THOUGHTS')
+    post_category=models.CharField(max_length=255, choices=POST_CAT, default='RANDOM_THOUGHTS')
     post_name=models.CharField(max_length=255)
     post_description=models.CharField(max_length=255)
-    upload_date=models.DateTimeField(auto_now_add=True)
-    updated_date=models.DateTimeField(auto_now_add=True)
-    post_content=models.FileField(upload_to='static/blogfiles', default=None)
+    upload_date=models.DateTimeField(auto_now_add=True, max_length=255)
+    updated_date=models.DateTimeField(auto_now_add=True, max_length=255)
+    post_content=models.FileField(upload_to='static/blogfiles', default=None, max_length=255)
 
 
     def __str__(self):

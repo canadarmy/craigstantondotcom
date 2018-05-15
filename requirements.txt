@@ -1,0 +1,6 @@
+requests==2.18.4
+mistune==0.8.3
+Django==1.11.6
+Pygments==2.2.0
+beautifulsoup4==4.6.0
+djangorestframework==3.8.2
