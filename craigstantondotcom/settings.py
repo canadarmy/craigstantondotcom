@@ -24,9 +24,9 @@ with open(r'C:\Users\Craig\csdotcom_key.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'craigstanton.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
