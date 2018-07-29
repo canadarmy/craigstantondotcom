@@ -19,10 +19,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-with open(r'C:\Users\Craig\csdotcom_key.txt') as f:
-    SECRET_KEY = f.read().strip()
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -82,9 +78,17 @@ WSGI_APPLICATION = 'craigstantondotcom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+    with open(r'gs://craigstantondotcom-static/craigstantondotcom-basedb-password.txt') as f:
+        BASEDB_PWD = f.read().strip()
+    with open(r'gs://craigstantondotcom-static/csdotcom_key.txt') as f:
+        SECRET_KEY = f.read().strip()
 
-with open(r'C:\Users\Craig\csdotcom_dbpw.txt') as f:
-    SECRET_DBPW = f.read().strip()
+else:
+    with open(r'C:\Users\Craig\csdotcom_dbpw.txt') as f:
+        SECRET_DBPW = f.read().strip()
+    with open(r'C:\Users\Craig\csdotcom_key.txt') as f:
+        SECRET_KEY = f.read().strip()
 
 
 # [START db_setup]
@@ -97,7 +101,7 @@ if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
             'HOST': '/cloudsql/craigstantondotcom:europe-west1:craigstanton-basedb',
             'NAME': 'craigstanton-basedb',
             'USER': 'postgres',
-            'PASSWORD': 'Spurs2018!',
+            'PASSWORD': BASEDB_PWD,
         }
     }
 else:
