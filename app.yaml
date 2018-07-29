@@ -2,6 +2,8 @@ runtime: python37
 # the PROJECT-DIRECTORY is the one with settings.py and wsgi.py
 env: standard # for Google Cloud Flexible App Engine
 
+entrypoint: python server.py
+
 # any environment variables you want to pass to your application.
 # accessible through os.environ['VARIABLE_NAME']
 env_variables:
