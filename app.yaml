@@ -9,7 +9,7 @@ entrypoint: python server.py
 env_variables:
 # the secret key used for the Django app (from PROJECT-DIRECTORY/settings.py)
 #  SECRET_KEY: 'DJANGO-SECRET-KEY'
-#  DEBUG: 'False' # always False for deployment
+DEBUG: 'True' # always False for deployment
 
 # everything after /cloudsql/ can be found by entering >> gcloud sql instances describe DATABASE-NAME << in your Terminal
 # the DATABASE-NAME is the name you gave your project's PostgreSQL database
