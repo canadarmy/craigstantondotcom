@@ -79,9 +79,9 @@ WSGI_APPLICATION = 'craigstantondotcom.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
-    with open(r'gs://craigstantondotcom-static/craigstantondotcom-basedb-password.txt') as f:
+    with open(r'https://storage.googleapis.com/craigstantondotcom-static/craigstantondotcom-basedb-password.txt') as f:
         BASEDB_PWD = f.read().strip()
-    with open(r'gs://craigstantondotcom-static/csdotcom_key.txt') as f:
+    with open(r'https://storage.googleapis.com/craigstantondotcom-static/csdotcom_key.txt') as f:
         SECRET_KEY = f.read().strip()
 
 else:
