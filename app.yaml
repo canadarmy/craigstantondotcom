@@ -26,8 +26,7 @@ env_variables:
 handlers:
 - url: /static
   static_dir: static/
-- url: .*
-  script: server.py
+
 
 beta_settings:
 # from command >> gcloud sql instances describe DATABASE-NAME <<
