@@ -21,7 +21,7 @@ from homepage import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^/$', views.home, name="homepage"),
+    url(r'^$', views.home, name="homepage"),
     url(r'^blockchain/', include('blockchain.urls')),
     url(r'^blog/', include('generalblog.urls')),
 ]
