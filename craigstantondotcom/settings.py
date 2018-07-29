@@ -82,19 +82,42 @@ WSGI_APPLICATION = 'craigstantondotcom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+
 with open(r'C:\Users\Craig\csdotcom_dbpw.txt') as f:
     SECRET_DBPW = f.read().strip()
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'craigstantondotcom',
-        'USER': 'Craig',
-        'PASSWORD': SECRET_DBPW,
-        'HOST': 'localhost',
-        'PORT': '5432',
+
+# [START db_setup]
+if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+    # Running on production App Engine, so connect to Google Cloud SQL using
+    # the unix socket at /cloudsql/<your-cloudsql-connection string>
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'HOST': '/cloudsql/craigstantondotcom:europe-west1:craigstanton-basedb',
+            'NAME': 'craigstanton-basedb',
+            'USER': 'postgres',
+            'PASSWORD': 'Spurs2018!',
+        }
     }
-}
+else:
+    # Running locally so connect to either a local MySQL instance or connect to
+    # Cloud SQL via the proxy. To start the proxy via command line:
+    #
+    #     $ cloud_sql_proxy -instances=[INSTANCE_CONNECTION_NAME]=tcp:3306
+    #
+    # See https://cloud.google.com/sql/docs/mysql-connect-proxy
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': 'craigstantondotcom',
+            'USER': 'Craig',
+            'PASSWORD': SECRET_DBPW,
+            'HOST': 'localhost',
+            'PORT': '5432',
+        }
+    }
+# [END db_setup]
 
 
 # Password validation
@@ -138,3 +161,5 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
+
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'craigstantondotcom-static')
