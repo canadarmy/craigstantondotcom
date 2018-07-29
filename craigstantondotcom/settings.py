@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import socket
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -80,7 +81,7 @@ WSGI_APPLICATION = 'craigstantondotcom.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+if socket.gethostname() != "Chizzler":
     with open(r'https://storage.googleapis.com/craigstantondotcom-static/craigstantondotcom-basedb-password.txt') as f:
         BASEDB_PWD = f.read().strip()
     with open(r'https://storage.googleapis.com/craigstantondotcom-static/csdotcom_key.txt') as f:
@@ -94,7 +95,7 @@ else:
 
 
 # [START db_setup]
-if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine'):
+if socket.gethostname() != "Chizzler":
     # Running on production App Engine, so connect to Google Cloud SQL using
     # the unix socket at /cloudsql/<your-cloudsql-connection string>
     DATABASES = {
