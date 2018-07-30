@@ -26,9 +26,11 @@ env_variables:
 handlers:
 - url: /
   script: python server.py
+
 - url: /static
   static_dir: static/
-- url:
+
+
 
 
 beta_settings:
