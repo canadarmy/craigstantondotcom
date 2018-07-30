@@ -24,7 +24,7 @@ env_variables:
   DB_PASSWORD: '!Spurs2018!'
 
 handlers:
-- url: /
+- url: /.*
   script: python server.py
 
 - url: /static
