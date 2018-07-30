@@ -1,7 +1,8 @@
+mistune==0.8.3
+requests==2.19.1
+waitress==1.1.0
 Django==1.11.6
 Pygments==2.2.0
-mistune==0.8.3
-waitress==1.1.0
-requests==2.19.1
 beautifulsoup4==4.6.1
+protobuf==3.6.0
 djangorestframework==3.8.2

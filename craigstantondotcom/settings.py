@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 import socket
+from google.cloud import storage
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -82,12 +83,19 @@ WSGI_APPLICATION = 'craigstantondotcom.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 if socket.gethostname() != "Chizzler":
+    client = storage.Client()
+    bucket = client.get_bucket('craigstantondotcom-backend')
 
-    with open(r'https://storage.googleapis.com/craigstantondotcom-backend/craigstantondotcom-basedb-password.txt') as f:
-        BASEDB_PWD = f.read().strip()
-    with open(r'https://storage.googleapis.com/craigstantondotcom-backend/csdotcom_key.txt') as f:
-        SECRET_KEY = f.read().strip()
+    basedb_pwd_location = bucket.get_blob('craigstantondotcom-basedb-password.txt')
+    BASEDB_PWD = basedb_pwd_location.download_as_string().strip()
 
+    secret_key_location = bucket.get_blob('csdotcom_key.txt')
+    SECRET_KEY = secret_key_location.download_as_string().strip()
+
+    #with open(r'https://storage.googleapis.com/craigstantondotcom-backend/craigstantondotcom-basedb-password.txt') as f:
+        #BASEDB_PWD = f.read().strip()
+    #with open(r'https://storage.googleapis.com/craigstantondotcom-backend/csdotcom_key.txt') as f:
+        #SECRET_KEY = f.read().strip()
 else:
     with open(r'C:\Users\Craig\csdotcom_dbpw.txt') as f:
         SECRET_DBPW = f.read().strip()
