@@ -1,6 +1,6 @@
 runtime: python37
 # the PROJECT-DIRECTORY is the one with settings.py and wsgi.py
-env: flex # for Google Cloud Flexible App Engine
+env: standard # for Google Cloud Flexible App Engine
 
 entrypoint: python server.py
 
