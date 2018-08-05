@@ -30,6 +30,10 @@ handlers:
   static_dir: static/
   secure: always
 
+- url: /admin/.*
+  script: admin.app
+  secure: always
+
 - url: /.*
   script: python server.py
   secure: always
