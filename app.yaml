@@ -31,8 +31,8 @@ handlers:
   secure: always
 
 - url: /admin/.*
-  script: admin.app
-  secure: always
+  script: google.appengine.ext.admin.application
+  login: admin
 
 - url: /.*
   script: python server.py
