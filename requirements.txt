@@ -9,3 +9,4 @@ djangorestframework==3.8.2
 google-cloud-storage==1.10.0
 markdown==2.6.10
 psycopg2==2.7.3.2
+google-api-python-client==1.7.4
