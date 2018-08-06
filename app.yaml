@@ -15,7 +15,7 @@ env_variables:
 # the DATABASE-NAME is the name you gave your project's PostgreSQL database
 # the second line from the describe output called connectionName can be copied and pasted after /cloudsql/
 
-  STATIC_URL: 'https://console.cloud.google.com/storage/browser/craigstantondotcom-static' # this is the url that you sync static files to
+  STATIC_URL: 'https://storage.googleapis.com/craigstantondotcom-static/static/' # this is the url that you sync static files to
 
   DB_HOST: '/cloudsql/craigstantondotcom:europe-west1:craigstanton-basedb'
   DB_PORT: '5432' # PostgreSQL port
