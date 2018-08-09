@@ -17,11 +17,14 @@ env_variables:
 
   STATIC_URL: 'https://storage.googleapis.com/craigstantondotcom-static/static/' # this is the url that you sync static files to
 
-  DB_HOST: '/cloudsql/craigstantondotcom:europe-west1:craigstanton-basedb'
-  DB_PORT: '5432' # PostgreSQL port
-  DB_NAME: 'postgres'
-  DB_USER: 'postgres' # either 'postgres' (default) or one you created on the PostgreSQL instance page
-  DB_PASSWORD: '!Spurs2018!'
+  #DB_HOST: '/cloudsql/craigstantondotcom:europe-west1:craigstanton-basedb'
+  #DB_PORT: '5432' # PostgreSQL port
+  #DB_NAME: 'postgres'
+  #DB_USER: 'postgres' # either 'postgres' (default) or one you created on the PostgreSQL instance page
+  #DB_PASSWORD: '!Spurs2018!'
+
+  SQLALCHEMY_DATABASE_URI: >-
+    postgresql+psycopg2://postgres:!Spurs2018!@/postgres?host=/cloudsql/craigstantondotcom:europe-west1:craigstanton-basedb
 
 handlers:
 
