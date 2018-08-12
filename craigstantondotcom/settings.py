@@ -114,6 +114,7 @@ if socket.gethostname() != "Chizzler":
             'NAME': 'craigstanton-basedb',
             'USER': 'postgres',
             'PASSWORD': BASEDB_PWD,
+            'PORT': '5432'
         }
     }
 else:
