@@ -111,8 +111,8 @@ if socket.gethostname() != "Chizzler":
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
             'HOST': '/cloudsql/craigstantondotcom:europe-west1:craigstanton-basedb',
-            'NAME': 'craigstanton-basedb',
-            'USER': 'postgres',
+            'NAME': 'maindb',
+            'USER': 'maindev',
             'PASSWORD': BASEDB_PWD,
             'PORT': '5432'
         }
